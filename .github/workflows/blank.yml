@@ -23,8 +23,9 @@ jobs:
           echo "${{secrets.RAZORPAY}}"
       - name: Install dependencies
         run: composer install && composer dump-autoload
-      - name: Do Something with env files
-        env:
-          PROD_ENV_FILE: ${{secrets.RAZORPAY}}
+      - name: 'Create env file'
         run: |
-          [ "$YOUR_ENVIRONMENT" = prod ] && echo $PROD_ENV_FILE | base64 --decode > .env
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.RAZORPAY }} >> .env
+          cat .env
