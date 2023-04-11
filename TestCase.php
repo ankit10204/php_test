@@ -10,7 +10,7 @@ class TestCase extends PhpUnitTest
 {
     public function testHello()
     {
-      echo getenv("API_KEY");
+      echo $_ENV["API_KEY"];
       $this->assertTrue(true);
     }  
 }
