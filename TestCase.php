@@ -11,6 +11,6 @@ class TestCase extends PhpUnitTest
     public function testHello()
     {
       echo $_ENV["API_KEY"];
-      $this->assertTrue('razorpay_test'==$_ENV["API_KEY"]);
+      $this->assertTrue('razorpay_tes'==$_ENV["API_KEY"]);
     }  
 }
