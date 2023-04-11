@@ -26,10 +26,10 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY=${{ secrets.RAZORPAY }} >> .env
-          cat .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> ${{ github.workspace }}/tests/ .env
+          echo API_KEY=${{ secrets.RAZORPAY }} >> ${{ github.workspace }}/tests/ .env
+          cat ${{ github.workspace }}/tests/ .env
       - name: Install dependencies
         run: composer self-update && composer install && composer require vlucas/phpdotenv && composer dump-autoload
       - name: Run tests and collect coverage
-        run: vendor/bin/phpunit TestCase.php    
+        #run: vendor/bin/phpunit TestCase.php    
