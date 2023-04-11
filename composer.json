@@ -8,7 +8,7 @@
             "email": "",
             "homepage": "",
             "role": "Developer"
-        },
+        }
     ],
     "license": "MIT",
     "require": {
