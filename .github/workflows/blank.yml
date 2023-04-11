@@ -18,6 +18,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
+      - name: Run env
+        run: |
+          echo "${{env.RAZORPAY_API_KEY}}"
       - name: Install dependencies
         run: composer install && composer dump-autoload
       - name: Run tests and collect coverage
