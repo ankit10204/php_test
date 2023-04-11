@@ -21,4 +21,4 @@ jobs:
       - name: Install dependencies
         run: composer install && composer dump-autoload
       - name: Run tests and collect coverage
-        run: php test.php
+        run: vendor/bin/phpunit  index.php --coverage-clover coverage.xml
