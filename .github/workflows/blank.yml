@@ -19,4 +19,4 @@ jobs:
         with:
           php-version: '8.0'
       - name: Run tests and collect coverage
-        run: php ./index.php
+        run: php index.php
