@@ -20,12 +20,11 @@ jobs:
           php-version: '8.0'
       - name: Run env
         run: |
-          echo "${{env.RAZORPAY_API_KEY}}"
+          echo "${{secrets.RAZORPAY}}"
       - name: Install dependencies
         run: composer install && composer dump-autoload
-      - name: 'Create env file'
+      - name: Do Something with env files
+        env:
+          PROD_ENV_FILE: ${{secrets.RAZORPAY}}
         run: |
-          touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY=${{ secrets.RAZORPAY_API_KEY }} >> .env
-          cat .env
+          [ "$YOUR_ENVIRONMENT" = prod ] && echo $PROD_ENV_FILE | base64 --decode > .env
